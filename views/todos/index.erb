@@ -1,1 +1,7 @@
-<img src="/img/glhf.png">
+<ul>
+<% @todos.each do |todo| %>
+    <li>
+        <a href="/todos"><%=todo["name"] %></a>
+    </li>
+<% end %>
+</ul>
