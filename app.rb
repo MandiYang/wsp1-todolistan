@@ -12,11 +12,7 @@ class App < Sinatra::Base
 
       return @db
     end
-
-    get '/' do        
-        erb(:'todos/index')
-    end
-
+    
     get '/todos' do 
         @todos=db.execute('SELECT * FROM todos')
         ap @todos
