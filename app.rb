@@ -18,4 +18,18 @@ class App < Sinatra::Base
         ap @todos
         erb(:'todos/index') 
     end
+
+    get '/todos/new' do  
+        erb(:'todos/new')
+    end
+
+    get '/todos/:id' do |id|
+        @todo=db.execute('SELECT * FROM todos WHERE id=?', id).first
+        ap @todo
+        erb(:'todos/show')
+    end
+
+    post '/todos' do
+        
+    end
 end
