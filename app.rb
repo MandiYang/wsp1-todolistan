@@ -30,6 +30,10 @@ class App < Sinatra::Base
     end
 
     post '/todos' do
-        
+        ap params
+        f_name = params["todos_name"]
+        f_description = params["todos_description"]
+        db.execute("INSERT INTO todos (name, description) VALUES (?, ?)", [f_name, f_description])
+        redirect("/todos")
     end
 end
